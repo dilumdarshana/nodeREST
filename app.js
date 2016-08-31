@@ -1,24 +1,43 @@
 // Dependencies
-var express = require('express');
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
+var express = require('express'),
+    mongoose = require('mongoose');
 
 var port = process.env.PORT || 4000; // define port
 
-// Mongo DB
-mongoose.connect('mongodb://localhost/test');
-
 // Express
 var app = express();
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
 
-app.get('/', function(req, res) {
-    res.send ('Wow!....Hellow there!');
+// db connection
+var dbConString = 'mongodb://localhost/bookAPI';
+var db = mongoose.connect(dbConString, function (err, res) {
+    if (err)
+        console.log('Failed to connect to: ' + dbConString + '. Err: ' + err);
+    else
+        console.log ('Successfully connected with: ' + dbConString);
 });
 
-// Routes
-//app.use('/api', require('./routes/api'));
+// attaching book model
+var Book = require('./models/bookModel');
+
+// define routers
+var bookRouter = express.Router();
+bookRouter.route('/Books')
+    .get(function (req, res) {
+        
+        Book.find(function (err, books) {
+           
+            if (err)
+                res.status(500).send(err);
+            else
+                res.json(books);
+        });
+    });
+
+app.use('/api', bookRouter);
+
+app.get('/', function(req, res) {
+    res.send ('Wowwww!....Hellow there!');
+});
 
 // Server
 app.listen(port, function() {
