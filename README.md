@@ -6,6 +6,8 @@ How to initalize node app,
 
 - npm install --save mongoose node-restful body-parser - General extra modules that need for REST which doesn't come up with express
 
+- npm install gulp-mocha should sinon --save - For Unit Testing
+
 Task monitoring system (using gulp):
 
 Node change monitoring tool. Once do a change on the file system, app will restart automatically.
