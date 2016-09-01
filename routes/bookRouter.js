@@ -1,14 +1,15 @@
 var express = require('express');
 
+// attaching book model
+var Book = require('../models/bookModel');
+
+// define whole book routes as function
 var routes = function() {
-    
-    // attaching book model
-    var Book = require('../models/bookModel');
     
     // express router
     var bookRouter = express.Router();
 
-    bookRouter.route('/Books')
+    bookRouter.route('/')
 
         // add a new book
         .post(function(req, res) {      
@@ -33,7 +34,7 @@ var routes = function() {
         });
 
     // get book by id
-    bookRouter.route('/Books/:bookId')
+    bookRouter.route('/:bookId')
         .get(function (req, res) {
 
             Book.findById(req.params.bookId, function (err, book) {

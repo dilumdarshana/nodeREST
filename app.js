@@ -1,6 +1,7 @@
 // Dependencies
 var express = require('express'),
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    bodyParser = require('body-parser');
 
 var port = process.env.PORT || 4000; // define port
 
@@ -16,25 +17,16 @@ var db = mongoose.connect(dbConString, function (err, res) {
         console.log ('Successfully connected with: ' + dbConString);
 });
 
-// attaching book model
-var Book = require('./models/bookModel');
+// inform that we are going to use body-parser
+// body-parser use to convert http post data to json
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json ());
 
 // define routers
-var bookRouter = express.Router();
-bookRouter.route('/Books')
-    .get(function (req, res) {
-        
-        Book.find(function (err, books) {
-           
-            if (err)
-                res.status(500).send(err);
-            else
-                res.json(books);
-        });
-    });
+var bookRouter = require('./routes/bookRouter');
+app.use('/api/Books', bookRouter);
 
-app.use('/api', bookRouter);
-
+// old style route
 app.get('/', function(req, res) {
     res.send ('Wowwww!....Hellow there!');
 });
