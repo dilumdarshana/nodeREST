@@ -26,9 +26,9 @@ HOW TO RUN:
 USAGE:
 
 - GET (list out all the book OR list individual book)
-    API - http://localhost:5000/api/books
-    API - http://localhost:5000/api/books/57c68308c4dad892a2171b66
-    RESULT - {
+    - API - http://localhost:5000/api/books
+    - API - http://localhost:5000/api/books/57c68308c4dad892a2171b66
+    - RESULT - {
               "_id": "57c68308c4dad892a2171b66",
               "title": "Node JS",
               "auther": "Rayan Dhal",
@@ -37,29 +37,29 @@ USAGE:
             }
     
 - POST (add new book to DB)
-    API - http://localhost:5000/api/books
-    POST DATA - {
+    - API - http://localhost:5000/api/books
+    - POST DATA - {
                     "title": "Node JS",
                     "auther": "Rayan Dhal",
                     "read": true
                 }
  
 - PUT (Update existing book by primary key)
-     API - localhost:5000/api/books/57c68308c4dad892a2171b66
-     DATA - {
+     - API - localhost:5000/api/books/57c68308c4dad892a2171b66
+     - DATA - {
                 "title": "Node JS Basics",
                 "auther": "Rayan Dhal",
                 "read": true
             }
      
 - PATCH (Update existing book partially by primary key)
-     API - localhost:5000/api/books/57c68308c4dad892a2171b66
-     DATA - {
+     - API - localhost:5000/api/books/57c68308c4dad892a2171b66
+     - DATA - {
                 "read": false
             }
      
 - DELETE (delete a existing book by primary key)
-    API - localhost:5000/api/books/57c68308c4dad892a2171b66
+    - API - localhost:5000/api/books/57c68308c4dad892a2171b66
     
 
 TESTING:
