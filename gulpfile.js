@@ -4,13 +4,13 @@ var gulp = require('gulp'),
 
 // task runner
 gulp.task('default', function() {
-  nodemon({
+    nodemon({
     script: 'app.js',
     ext: 'js',
     env: { PORT: 5000 },
     ignore: ['./node_moduels/**']
-  })
-  .on ('restart', function() {
-      console.log ('Restarting...');
-  })
+    })
+    .on ('restart', function() {
+        console.log ('Restarting...');
+    });
 });
