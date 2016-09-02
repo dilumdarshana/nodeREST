@@ -21,5 +21,8 @@
     "should": "^11.1.0",
     "sinon": "^1.17.5"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "gulp-env": "^0.4.0",
+    "supertest": "^2.0.0"
+  }
 }

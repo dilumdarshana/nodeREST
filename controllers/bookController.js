@@ -3,8 +3,15 @@ var bookController = function(Book) {
     // add new book
     var post = function(req, res) {      
         var newBook = new Book (req.body);
-        newBook.save();
-        res.status(201).send(newBook);
+        
+        if (!req.body.title) {
+            res.status(400);
+            res.send('Book title can not be blank');
+        } else {
+            newBook.save();
+            res.status(201);
+            res.send(newBook);
+        }
     }
     // find book by auther. If no auther provided, API will return all available books
     var get = function(req, res) {      

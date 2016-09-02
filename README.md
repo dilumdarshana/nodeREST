@@ -8,6 +8,8 @@ How to initalize node app,
 
 - npm install gulp-mocha should sinon --save - For Unit Testing
 
+- npm install supertest gulp-env --save-dev - For integration Testing
+
 Task monitoring system (using gulp):
 
 Node change monitoring tool. Once do a change on the file system, app will restart automatically.
@@ -65,9 +67,9 @@ USAGE:
     - API - localhost:5000/api/books/57c68308c4dad892a2171b66
     
 
-UNIT TESTING (Using mocha):
+UNIT TESTING and INTEGRATION TESTING (Using mocha):
 
-- To be continued
+- gulp test
 
 PENDINGS:
 
