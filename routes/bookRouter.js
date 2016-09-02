@@ -11,13 +11,6 @@ var routes = function() {
     
     // make use of controllers, so can do unit testing
     var bookController = require('../controllers/bookController')(Book);
-
-    bookRouter.route('/')
-
-        // add a new book
-        .post(bookController.post)
-        // find book by auther
-        .get(bookController.get);
     
     // write middleware to avoid duplicate frags
     bookRouter.use('/:bookId', function (req, res, next) {
@@ -33,7 +26,14 @@ var routes = function() {
             }
         });
     });
-
+    
+    // router without bookId
+    bookRouter.route('/')
+        // add a new book
+        .post(bookController.post)
+        // find book by auther
+        .get(bookController.get);
+    
     // get book by id
     bookRouter.route('/:bookId')
         .get(function(req, res) {
@@ -43,7 +43,7 @@ var routes = function() {
             req.book.title = req.body.title;
             req.book.auther = req.body.auther;
             req.book.read = req.body.read;
-            req.book.save(function(err) {             
+            req.book.save(function(err) {          
                 if(err)
                     res.status(500).send(err);
                 else

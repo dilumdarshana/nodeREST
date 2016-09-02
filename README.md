@@ -19,6 +19,7 @@ Node change monitoring tool. Once do a change on the file system, app will resta
 Note: 
     - Assume that having a database call 'bookAPI' in mongo
     - Assume that mongo db has table call 'books'
+    - All APIs can be test using Google Chrome 'Postman' extension
     - npm global installations will keep in '/usr/local/lib/node_modules' in Mac.
   
 HOW TO RUN:
@@ -64,4 +65,10 @@ USAGE:
     - API - localhost:5000/api/books/57c68308c4dad892a2171b66
     
 
-TESTING:
+UNIT TESTING (Using mocha):
+
+- To be continued
+
+PENDINGS:
+
+- Simplify/enhance the REST using module 'node-restful'
