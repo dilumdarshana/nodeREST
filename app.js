@@ -16,25 +16,27 @@ var db = mongoose.connect(dbConString, function (err, res) {
     if (err)
         console.log('Failed to connect to: ' + dbConString + '. Err: ' + err);
     else
-        console.log ('Successfully connected with: ' + dbConString);
+        console.log('Successfully connected with: ' + dbConString);
 });
 
 // inform that we are going to use body-parser
 // body-parser use to convert http post data to json
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json ());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
 
 // define routers
 var bookRouter = require('./routes/bookRouter');
 app.use('/api/Books', bookRouter);
 
 // old style route
-app.get('/', function(req, res) {
-    res.send ('Wowwww!....Hellow there!');
+app.get('/', function (req, res) {
+    res.send('Wowwww!....Hellow there!');
 });
 
 // Server
-app.listen(port, function() {
+app.listen(port, function () {
     console.log('Node running on port ' + port);
 });
 
