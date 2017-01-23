@@ -69,7 +69,7 @@ USAGE:
 
 UNIT TESTING and INTEGRATION TESTING (Using mocha):
 
-- gulp test
+- gulp test ()
 
 PENDINGS:
 
